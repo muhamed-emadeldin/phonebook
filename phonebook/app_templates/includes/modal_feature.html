@@ -1,0 +1,35 @@
+<div class="modal fade" id="exampleModalTable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:40vw" id="dynamic-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel" style="width: 100%">
+                    <button type="button" class="btn btn-default">Default</button>
+                </h5>
+                <button type="button" class="btn-close text-secondary" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body" id="dynamic-modal-div">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead class='text-center'>
+                                <tr class='justify-content-md-center' id='col-name-feature'>
+                                    <th class="text-uppercase text-info text-xxs font-weight-bolder opacity-7" id='col-aynamic-1'>KPIS</th>
+                                    <th class="text-uppercase text-info text-xxs font-weight-bolder opacity-7">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id='tBodyFeature' class='justify-content-md-center'>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn bg-gradient-info" id="downlod-csv-file">Download</button>
+            </div>
+        </div>
+    </div>
+</div>

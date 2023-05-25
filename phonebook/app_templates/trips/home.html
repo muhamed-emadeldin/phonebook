@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='container'>
+  <div class="row">
+    <div class="col-md-6">
+      <h1> Where to?</h1>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="form-group">
+      <label class="form-control-label" for="id-google-address-a">Current Location</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1"><i class="ni ni-map-big"></i></span>
+        <input type="text" class="form-control" id="id-google-address-a" aria-describedby="basic-addon3" placeholder='Your Location'>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="id-google-address-b">Add a stop</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1"><i class="ni ni-map-big"></i></span>
+        <input type="text" class="form-control" id="id-google-address-b" aria-describedby="basic-addon3" placeholder='Add a stop'>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" class="geo" id="id-lat-a" value="">
+   <input type="hidden" class="geo" id="id-long-a" value="">
+   <input type="hidden" class="geo" id="id-lat-b" value="">
+   <input type="hidden" class="geo" id="id-long-b" value="">
+
+</div>
+{% endblock content %}
+
+{% block extend_footer %}
+  <script type="text/javascript">
+    var google_api_key = "{{google_api_key|safe}}";
+  </script>
+  <script src="{% static 'js/route/google_routes.js' %}"></script>
+
+{% endblock extend_footer %}

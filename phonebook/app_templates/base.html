@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+        <title>{% block title %}{% endblock %}</title>
+
+        <!--include CSS Files-->
+        {% include 'includes/css.html' %}
+        <!--include JS Files-->
+        {% include 'includes/js.html' %}
+        
+      </head>
+
+      <body class="g-sidenav-show  bg-gray-100">
+        {% include 'includes/navbar.html' %}
+
+        <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+            {% include 'includes/header.html' %}
+            <div class="container-fluid py-4">
+                {% block content %}
+                {% endblock content %}
+                {% block extend_footer %}{% endblock extend_footer %}
+            </div>
+        </main>
+      </body>
+</html>

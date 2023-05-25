@@ -1,0 +1,37 @@
+<div class="dropdown" style="position:absolute; right: 19rem; top:7rem">
+    <ul class="dropdown-menu show" aria-labelledby="navbarDropdownMenuLink2" style="transform:none !important; min-width:16rem;">
+        <li>
+          <a class="dropdown-item" href="javascript:;">
+            <i class="ni ni-building text-info"></i>   NUMBER OF DEVICES
+            <span class="badge bg-gradient-info badge-md border-circle badge-floating badge-danger border-white"  style="float:right; font-size:.8rem">{{home_analyize.Saudi.sites}}</span>
+          </a>
+        </li>
+
+        {% if home_analyize.Saudi.sites_down|length > 0 %}
+          <li>
+            <a class="dropdown-item" href="javascript:;"  id='devDown'>
+              <i class="ni ni-box-2 text-danger"></i>   DEVICES DOWN
+              <span class="badge bg-gradient-danger badge-md border-circle badge-floating badge-danger border-white"  style="float:right; font-size:.8rem">{{home_analyize.Saudi.sites_down|length}}</span>
+            </a>
+          </li>
+        {% endif %}
+        
+
+        {% if home_analyize.Saudi.warnings|length > 0 %}
+          <li>
+            <a class="dropdown-item" href="javascript:;" id='devWarning'>
+              <i class="ni ni-notification-70 text-warning"></i>   HIGHLY UTILIZED LINK
+              <strong><span class="badge bg-gradient-warning badge-md border-circle badge-floating badge-danger border-white"  style="float:right; font-size:.8rem">{{home_analyize.Saudi.warnings|length}}</span></strong>
+            </a>
+          </li>
+        {% endif %}
+        
+
+        <li>
+          <a class="dropdown-item" href="javascript:;" id='devTypes'>
+            <i class="ni ni-app text-info"></i> DEVICES PER TYPE
+            <span class="badge bg-gradient-info badge-md border-circle badge-floating badge-danger border-white" style="float:right; font-size:.8rem">{{home_analyize.Saudi.types|length}}</span>
+          </a>
+        </li>
+    </ul>
+  </div>
