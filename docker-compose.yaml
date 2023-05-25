@@ -1,0 +1,63 @@
+version: '3'
+
+name: 'phonebook'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: 'mysql'
+    environment:
+      - MYSQL_DATABASE=PHONEBOOK
+      - MYSQL_USER=user_phonebook
+      - MYSQL_ROOT_PASSWORD=default@123
+      - MYSQL_PASSWORD=default@123
+    
+    volumes:
+      - mysql-db-volume:/var/lib/mysql
+      - phonebook:/phonebook
+      - /tmp/app/mysqld:/var/run/mysqld
+    expose:
+      - 3406
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u$MYSQL_USER", "-p$MYSQL_PASSWORD",  "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 30s
+      retries: 50
+
+    restart: always
+
+    networks:
+      - net_topology
+
+  web:
+    build: .
+    container_name: 'phonebook'
+    ports:
+      - 6321:6321
+    healthcheck:
+      test: ["CMD", "python", "--version"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+    depends_on:
+      - redis
+      - mysql
+    volumes:
+      - mysql-db-volume:/var/lib/mysql
+      - phonebook:/phonebook
+      - /tmp/app/mysqld:/var/run/mysqld
+    networks:
+      - net_topology
+    command: ./entrypoint.sh
+    
+
+volumes:
+  mysql-db-volume:
+  phonebook:
+    driver: local
+
+networks:
+  net_topology:
+      external: true
+
+

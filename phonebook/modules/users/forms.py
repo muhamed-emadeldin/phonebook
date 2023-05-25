@@ -5,19 +5,19 @@ from .models import UserModel
 
 class UserLogin(AuthenticationForm):
     username    = forms.CharField(max_length=20, min_length=10, label='Phone Number', widget=forms.TextInput(attrs={"class":"form-control", "aria-label":"phone number", 'placeholder':'+966 5x xxx xxxx'}))
-    password    = forms.CharField(max_length=15, label='password', widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"email", 'placeholder':'*********'}))
+    password    = forms.CharField(max_length=15, label='password', widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"password", 'placeholder':'*********'}))
 
 class UserRegister(UserCreationForm):
-    password1 = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"email", 'placeholder':'*********'}))
-    password2 = forms.CharField(label="Password confirmation", widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"email", 'placeholder':'*********'}))
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"password", 'placeholder':'*********'}))
+    password2 = forms.CharField(label="Password confirmation", widget=forms.PasswordInput(attrs={"class":"form-control", "aria-label":"password", 'placeholder':'*********'}))
 
     class Meta:
         model       = UserModel
         fields      = ['firstname', 'lastname', 'phone', 'email']
-        widgets     = {'firstname':forms.TextInput(attrs={"class":"form-control", "aria-label":"First Name", 'placeholder':'Ali'}),
-                       'lastname':forms.TextInput(attrs={"class":"form-control", "aria-label":"Last Name", 'placeholder':'Elsayed'}),
+        widgets     = {'firstname':forms.TextInput(attrs={"class":"form-control", "aria-label":"First Name", 'placeholder':'Sara'}),
+                       'lastname':forms.TextInput(attrs={"class":"form-control", "aria-label":"Last Name", 'placeholder':'Khoja'}),
                        'phone':forms.TextInput(attrs={"class":"form-control", "aria-label":"phone", 'placeholder':'+966 5x xxx xxxx'}),
-                       'email':forms.EmailInput(attrs={"class":"form-control", "aria-label":"email", 'placeholder':'ali@pwc.com'})
+                       'email':forms.EmailInput(attrs={"class":"form-control", "aria-label":"email", 'placeholder':'s.khoja@tamhub.com'})
                       }
         
         labels      = {'firstname':'First Name', 'lastname':'Last Name', 'phone':'Phone Number', 'email':'Email', 'password':'Password'}

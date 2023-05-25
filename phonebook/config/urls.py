@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('modules.users.urls', namespace='home-page')),
+    path('', include('modules.users.urls', namespace='users')),
+    path('phonebook/', include('modules.phonebook.urls', namespace='phonebook')),
 ]
 
 if settings.DEBUG:

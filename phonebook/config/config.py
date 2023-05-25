@@ -20,10 +20,12 @@ DATABASES = {
 
 PRIVATEAPP  = [
     'modules.users',
+    'modules.phonebook',
     "debug_toolbar",
 ]
 
 LOGIN_URL           = 'users:login'
+LOGIN_REDIRECT_URL  = 'phonebook:home'
 LOGOUT_REDIRECT_URL = 'users:signup'
 
 #-->AUTH

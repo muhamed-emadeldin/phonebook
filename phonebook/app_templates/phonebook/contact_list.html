@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='container'>
+  <div class="row">
+    <div class="col-md-6">
+      <h1> Add Contacts and associate it with multiple numbers</h1>
+    </div>
+  </div>
+    <div class='row'>
+        {% for obj in object_list %}
+            {{obj.contact}}
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block extend_footer %}
+
+{% endblock extend_footer %}

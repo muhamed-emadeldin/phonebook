@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='container'>
+  <div class="row">
+    <div class="col-md-6">
+      <h1> Add Contacts and associate it with multiple numbers</h1>
+    </div>
+  </div>
+    <form role="form" method="POST">
+                  
+        {% csrf_token %}
+        <!----Catch Errors---->
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+              <strong style="color:#fff;">{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        <div class='row'>
+
+          <!--form fields-->
+          {% for field in form %}
+          <div class='col-md-6'>
+            <label>{{field.label_tag}}</label>
+            <div class="mb-3">
+              {{field}}
+            </div>
+          </div>
+          
+          {% endfor %}
+          <div class="text-center">
+            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Create PhoneBook</button>
+          </div>
+        </div>
+    </form>
+
+</div>
+{% endblock content %}
+
+{% block extend_footer %}
+
+{% endblock extend_footer %}
